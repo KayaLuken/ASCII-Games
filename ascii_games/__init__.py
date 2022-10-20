@@ -1,3 +1,4 @@
-from .game import Game, COLOURS
+from .game import Game
+from .display import bit, COLOURS
 
-__ALL__ = ['Game', 'COLOURS']
+__ALL__ = ['Game', 'COLOURS', 'bit']
