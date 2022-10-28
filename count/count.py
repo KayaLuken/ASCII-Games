@@ -9,13 +9,10 @@ class Count(Game):
     def cycle(self):
         self.model += 1
 
-    def run(self):
-        while True:
-            self.cycle()
-            time.sleep(self.refresh_rate)
-            self.render()
-            if self.model == self.FINAL_COUNT:
-                break
+    @property
+    def is_terminated(self):
+        if self.model == self.FINAL_COUNT:
+            return True
 
     @property
     def display(self):

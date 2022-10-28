@@ -3,10 +3,12 @@ import time
 import colorama
 from colorama import Fore, Style, Back
 
+from math import inf
+
 
 
 class Game:
-    def __init__(self, model, frame_rate=5):
+    def __init__(self, model, frame_rate=inf):
         # need to do this to clear ANSI characters which are not recognised by windows
         colorama.init()
         self.frame_rate = frame_rate
@@ -16,6 +18,14 @@ class Game:
     def clear_screen(self):
         for line in self.display:
             sys.stdout.write("\x1b[1A\x1b[2K")
+
+    def run(self):
+        while True:
+            self.cycle()
+            time.sleep(self.refresh_rate)
+            self.render()
+            if self.is_terminated:
+                break
 
     def render(self):
         self.clear_screen()
