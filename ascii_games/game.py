@@ -17,6 +17,8 @@ class Game:
 
     def clear_screen(self):
         for line in self.display:
+            # ANSI escape sequence to move cursor up one line and clear the line
+            # only works when output console is a terminal
             sys.stdout.write("\x1b[1A\x1b[2K")
 
     def render(self):
