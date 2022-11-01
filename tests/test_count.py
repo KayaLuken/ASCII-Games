@@ -4,7 +4,7 @@ from ascii_games import bit
 
 
 def test_count_counts():
-    count = Count(frame_rate=100, model=0)
+    count = Count(model=0)
     count.cycle()
     count.cycle()
     count.cycle()

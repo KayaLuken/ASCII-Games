@@ -19,14 +19,6 @@ class Game:
         for line in self.display:
             sys.stdout.write("\x1b[1A\x1b[2K")
 
-    def run(self):
-        while True:
-            self.cycle()
-            time.sleep(self.refresh_rate)
-            self.render()
-            if self.is_terminated:
-                break
-
     def render(self):
         self.clear_screen()
 
@@ -37,5 +29,13 @@ class Game:
                 output += f"{colour}{str(bit.symbol)}"
             sys.stdout.write(output)
             sys.stdout.write('\n')
+
+    def run(self):
+        while True:
+            self.cycle()
+            time.sleep(self.refresh_rate)
+            self.render()
+            if self.is_terminated:
+                break
 
 
